@@ -24,7 +24,14 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 // enabling CORS for all requests
-app.use(cors());
+app.use(cors({
+  origin: function(origin,callback){
+    
+  
+    return callback(null, true);
+  }
+
+}))
 
 // adding morgan to log HTTP requests
 app.use(morgan('combined'));
